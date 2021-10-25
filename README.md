@@ -1,24 +1,33 @@
-# README
+## Movie Maps
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイト概要
+誰もが閲覧できる映画レビューサイトです。
+ユーザーは会員登録をしておすすめの映画や評価などを投稿することが出来ます。それに対していいねやコメントが返ってくることもあるので、定期的に投稿する意欲が高まります。
+サイトに訪れた閲覧者は、評価の高い映画を探したり、他の人の感想に対していいねやコメントで意見を言うことが出来ます。
 
-Things you may want to cover:
+### サイトテーマ
+映画を見る前から楽しい映画サイト。
 
-* Ruby version
+### テーマを選んだ理由
+映画を見なくても閲覧しているだけで充実した時間を過ごせるようなサイトを作りたいと思いました。コロナウイルスの影響で自宅で過ごす時間が増えた私たちは、映画やドラマを見る時間も増えています。しかし、せっかく面白い映画を見ても共有できる相手がいないとつまらないものです。そこで、自分の見た映画を自分なりの言葉で紹介し、それを読んで共感した人が気軽にコメントできるようなコミュニティの場を作りたいと思いました。
 
-* System dependencies
+### ターゲットユーザ
+映画好きの人にはもちろん、自宅で過ごす時間が長く娯楽や人とのつながりを求める人たちなど。
 
-* Configuration
+### 主な利用シーン
+自分の見た映画を人に紹介したいときや、反対に人がおすすめする映画を知りたいときなど。また、映画を通じた交流の場としても活用できます。
 
-* Database creation
+### 設計書
+Movie Maps要件定義書
 
-* Database initialization
+### チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/13nwClBYgd1Sq0e160pGO2fTM74ukQYdMcinGV0JsooQ/edit#gid=0
 
-* How to run the test suite
+### 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 外部素材
