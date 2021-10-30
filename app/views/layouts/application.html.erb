@@ -12,18 +12,70 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-    <%= yield %>
+
+    <%# if user_signed_in? %>
+    <!--  <li>-->
+        <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <!--  </li>-->
+    <%# else %>
+    <!--  <li>-->
+        <%#= link_to "新規登録", new_user_registration_path %>
+    <!--  </li>-->
+    <!--  <li>-->
+        <%#= link_to "ログイン", new_user_session_path %>
+    <!--  </li>-->
+    <%# end %>
+
+    <header>
+      <nav class="navbar navbar-light navbar-expand-lg">
+        <div class="container">
+
+          <div class="navbar-brand">
+            <%= link_to "LOGO", root_path, class: "link-logo" %>
+          </div>
+
+          <!--<%# if customer_signed_in? %>-->
+          <!--  ようこそ、<%#= current_customer.last_name %>さん！-->
+          <!--<%# end %>-->
+
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+              <li class="nav-item active"><%= link_to "映画一覧", admin_root_path, class: "link" %></li>
+              <li class="nav-item active"><%= link_to "映画登録", new_admin_movie_path, class: "link" %></li>              <li class="nav-item active"><%= link_to "ジャンル一覧", admin_genres_path, class: "link" %></li>
+              <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "link" %></li>
+            <% elsif user_signed_in? %>
+              <li class="nav-item active"><%= link_to 'About', homes_about_path, class: "link" %></li>
+              <li class="nav-item active"><%= link_to "映画一覧", admin_root_path, class: "link"  %></li>
+              <li class="nav-item active"><%= link_to "マイページ", mypages_path, class: "link"  %></li>
+              <li class="nav-item active"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link" %></li>
+             <% else %>
+              <li class="nav-item active"><%= link_to "About", homes_about_path, class: "link" %></li>
+              <li class="nav-item active"><%= link_to "映画一覧", root_path, class: "link"  %></li>
+              <li class="nav-item active"><%= link_to "新規登録", new_user_registration_path, class: "link"  %></li>
+              <li class="nav-item active"><%= link_to "ログイン", new_user_session_path, class: "link"  %></li>
+            <% end %>
+          </ul>
+          </div>
+        </div>
+      </nav>
+      <!--font awesome読み込む-->
+      <div class="text-right">
+        <input type="text" placeholder="Search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+
+      </div>
+
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
