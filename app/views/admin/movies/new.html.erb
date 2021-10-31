@@ -1,0 +1,43 @@
+<h4>映画新規登録</h4>
+
+<!--<%#= form_with model: @movie, url: "/admin/movies/new", local:true do |f| %>どちらでも可-->
+<%= form_with model: [:admin, @movie], local:true do |f| %>
+        <div class="field">
+          <%= f.label :画像 %>
+          <%= f.attachment_field :image %>
+        </div>
+
+        <div class="field">
+          <%= f.label :題名 %>
+          <%= f.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= f.label :年代 %>
+          <%= f.number_field :created_year %>
+        </div>
+
+        <div class="field">
+          <%= f.label :ジャンル %>
+          <%#= f.select :genre_id, ['--選択してください--', 'ケーキ', '焼き菓子', 'プリン', 'キャンディ'] %>
+          <%= f.select :genre_id, Genre.all.map {|p| [p.name, p.id]}, :prompt => "選択してください", size: 60 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :監督 %>
+          <%= f.text_field :derector %>
+        </div>
+
+        <div class="field">
+          <%= f.label :出演 %>
+          <%= f.text_field :cast %>
+        </div>
+
+        <div class="field">
+          <%= f.label :概要 %>
+          <%= f.text_area :introduction %>
+        </div>
+
+        <%= submit_tag "登録する", class: "btn btn-primary" %>
+
+  <% end %>
