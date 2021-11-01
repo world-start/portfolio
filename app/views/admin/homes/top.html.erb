@@ -1,1 +1,23 @@
-admin.top
+<h4>映画一覧表</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>題名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.id %></td>
+      <td><%= movie.title %></td>
+      <td>
+        <%#= link_to "編集",  class: "btn btn-success" %>
+        <%= link_to "削除", admin_movie_path(movie), method: :delete, class: "btn btn-danger" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

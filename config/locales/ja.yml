@@ -1,0 +1,10 @@
+ja:
+  enums:
+    movie:
+      genre_id:
+        action: 'アクション'
+        comedy: 'コメディー'
+        horror: 'ホラー'
+        mystery: 'ミステリー'
+        romance: '恋愛'
+        sf: 'SF'
