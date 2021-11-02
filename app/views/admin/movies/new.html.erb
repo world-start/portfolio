@@ -19,9 +19,7 @@
 
         <div class="field">
           <%= f.label :ジャンル %>
-          <%#= f.select :genre_id, ['--選択してください--', 'ケーキ', '焼き菓子', 'プリン', 'キャンディ'] %>
-          <%#= f.select :genre_id, Genre.all.map {|p| [p.name, p.id]}, :prompt => "選択してください", size: 60 %>
-          <%#= f.select :genre_id, Movie.genre_ids_i18n.keys.map{|k| [I18n.t("enum.movie.genre_id.#{k}"), k]} %>
+          <%= f.select :genre_id, Movie.genre_ids_i18n.keys.map{|k| [I18n.t("movies.genre_ids.#{k}"), k]} %>
         </div>
 
         <div class="field">

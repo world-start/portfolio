@@ -4,5 +4,5 @@
   <%= attachment_image_tag movie, :image, :fill, 100, 100, format: 'jpeg' %>
   <%= movie.title %>
   <%= movie.created_year %>年
-  <%#= movie.genre_id %>
+  <%= movie.genre_id_i18n %>
 <% end %>
