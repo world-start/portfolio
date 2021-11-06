@@ -19,3 +19,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery.raty.js
+
+ $('.review-score').raty({
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  },
+   path: '/assets/'
+});

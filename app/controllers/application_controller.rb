@@ -15,7 +15,7 @@ def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
         admin_root_path
     else
-        mypages_path
+        mypage_path
     end
 end
 

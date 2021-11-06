@@ -16,3 +16,66 @@
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+
+//header
+.link-logo{
+ color: #000;
+ border: solid #000 1px;
+ font-size: 25px;
+ padding-right: 30px;
+ padding-left: 30px;
+}
+
+.link-logo:hover{
+ text-decoration: none;
+}
+
+.link{
+ color: #000;
+ border: solid #000 1px;
+ display: inline-block;
+ padding: 3px 3px;
+ margin: 6px 6px;
+ border-radius: 3px;
+}
+
+.link:hover{
+ text-decoration: none;
+}
+
+
+
+//body
+
+h4{
+ display: inline-block;
+ background-color: #eee;
+ padding: 0 20px;
+ margin: 30px 0 30px 100px;
+}
+
+.content{
+ margin-left: 100px;
+}
+
+table{
+ border: 1px solid #000;
+}
+
+table th{
+ border: 1px solid #000;
+}
+
+table td{
+ border: 1px solid #000;
+}
+
+thead th{
+ background-color: #eee;
+}
+
+.review{
+ border: 1px solid #000;
+ margin-bottom: 20px;
+}
