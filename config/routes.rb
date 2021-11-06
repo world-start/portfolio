@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     get "mypage", to: "mypages#mypage"
     get "mypages", to: "mypages#show"
     resources :reviews, only:[:show, :new, :create, :update, :destroy]
-    resources :comments, only:[:new, :create, :show]
+    resources :comments, only:[:new, :create, :show, :index]
     resources :movies
-    get "reviewer", to: "comments#reviewer"
+    # get "reviewer", to: "comments#reviewer"
   end
 
   namespace :admin do

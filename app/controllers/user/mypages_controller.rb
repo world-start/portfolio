@@ -3,8 +3,8 @@ class User::MypagesController < ApplicationController
   end
 
   def show
-    @reviews = current_user.reviews
-
+    @user = current_user
+    @reviews = @user.reviews
   end
 
   private

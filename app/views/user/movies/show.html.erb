@@ -1,35 +1,43 @@
 <div class="content">
-  <div class="movie_detial">
-    <div class="movie_left">
-      <%= attachment_image_tag @movie, :image %>
+  <div class="movie-detail">
+    <div class="movie-left">
+      <%= attachment_image_tag @movie, :image, :fill, 300, 300, format: 'jpeg' %>
+      <div>
       <%= @movie.title %>
-      <%= @movie.created_year %>
+      <%= @movie.created_year %>年
       <%= @movie.genre_id_i18n %>
       <%= @movie.director %>
       <%= @movie.cast %>
+      </div>
     </div>
-    <div class="movie_right">
+    <div class="movie-right">
       <%= @movie.introduction %>
     </div>
   </div>
-  <% @reviews.each do |review| %>
-<div class="relative-post-evaluation">
-  <%= review.user.nickname %>
-  <span id="star-rate-<%= review.id %>"></span>
-  <script>
-    $('#star-rate-<%= review.id %>').raty({
-      size: 36,
-      starOff: "<%= asset_path('star-off.png') %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      half: true,
-      readOnly: true,
-      score: <%= review.score %>,
-    });
-  </script>
-  <%= review.content %>
-</div>
-  <% end %>
-  <%= link_to "レビューを投稿する", new_review_path(movie_id: @movie) %>
+</div><br>
 
+<h4>レビュー一覧</h4>
+<div class="content">
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <div class="relative-post-evaluation">
+          <%= review.user.nickname %>
+          <span id="star-rate-<%= review.id %>"></span>
+          <script>
+            $('#star-rate-<%= review.id %>').raty({
+              size: 36,
+              starOff: "<%= asset_path('star-off.png') %>",
+              starOn: "<%= asset_path('star-on.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              half: true,
+              readOnly: true,
+              score: <%= review.score %>,
+            });
+          </script><br>
+          <%= review.content %><br>
+          <%= link_to "詳細", comment_path(review.user_id), class: "btn btn-success" %>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to "レビューを投稿する", new_review_path(movie_id: @movie), class: "btn btn-success" %>
 </div>

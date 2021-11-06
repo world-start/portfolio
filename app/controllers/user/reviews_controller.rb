@@ -4,9 +4,6 @@ class User::ReviewsController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @review = @movie.review_id
-    #@user = User.find(params[:id])
-    #@review = @user.review
-    #@reviews = Review.all
   end
 
   def new

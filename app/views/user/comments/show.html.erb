@@ -1,10 +1,11 @@
-<h5><%= current_user.nickname %></h5>
+yarinaosi!
 
-<div class="content" %>
+<h5><%= @user.nickname %></h5>
+
+<div class="review">
   <% @reviews.each do |review| %>
-    <div class="review">
-        <div class="relative-post-evaluation">
-          <%= current_user.nickname %>
+   <div class="relative-post-evaluation">
+          <%= review.user.nickname %>
           <%= review.movie.title %>,
           <%= review.movie.created_year %>,
           <%= review.movie.genre_id %>
@@ -22,7 +23,8 @@
           </script><br>
           <%= review.content %>
         </div>
-        <%= link_to "削除", review_path(review), method: :delete, class: "btn btn-danger" %>
       </div>
+
+
   <% end %>
 </div>

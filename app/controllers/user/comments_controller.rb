@@ -1,8 +1,8 @@
 class User::CommentsController < ApplicationController
   def show
+    # @movie = Movie.find(params[:id])
     @user = User.find(params[:id])
-    @comment = Comment.find(params[:id])
-    @review = Review.find(params[:id])
+    @reviews = @user.reviews
   end
 
   def reviewer
