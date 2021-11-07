@@ -66,8 +66,19 @@
         </nav>
 
         <div class="text-right">
-          <input type="text" placeholder="Search">
-          <button type="submit"><i class="fa fa-search"></i></button>
+          <!--<input type="text" placeholder="Search">-->
+          <!--<button type="submit"><i class="fa fa-search"></i></button>-->
+          <div class="search-form">
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+              <%= f.text_field :keyword, value: @keyword %>
+              <%= f.submit "検索" %>
+            <% end %>
+          </div>
+          <div class="movie-list">
+            <%# @movies.each do |movie| %>
+              <%#= movie.title %>
+            <%# end %>
+          </div>
         </div>
 
       </div>

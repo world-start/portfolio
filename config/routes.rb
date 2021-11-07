@@ -22,13 +22,15 @@ Rails.application.routes.draw do
     get "mypage", to: "mypages#mypage"
     get "mypages", to: "mypages#show"
     resources :reviews, only:[:show, :new, :create, :update, :destroy]
-    resources :comments, only:[:new, :create, :show, :index]
-    resources :movies
-    # get "reviewer", to: "comments#reviewer"
+    resources :comments, only:[:new, :create]
+    resources :movies, only:[:show]
+    resources :users, only:[:show]
   end
 
   namespace :admin do
     root :to => 'homes#top'
     resources :movies, only:[:new, :create, :destroy]
   end
+
+  get 'search' => 'movies#search'
 end

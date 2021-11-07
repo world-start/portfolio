@@ -1,5 +1,6 @@
 <%= form_with model: @review, local: true do |f| %>
   <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= current_user.nickname %>
   <div class="field" id="star">
   <%= f.label :score, "星評価：" %>
   <%= f.hidden_field :score, id: :review_star %>
@@ -10,7 +11,7 @@
       starOn : '<%= asset_path('star-on.png') %>',
       starHalf: '<%= asset_path('star-half.png') %>',
       scoreName: 'review[score]',
-      half: true, 
+      half: true,
     });
   </script>
 </div>

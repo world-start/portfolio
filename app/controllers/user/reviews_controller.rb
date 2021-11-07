@@ -2,8 +2,8 @@ class User::ReviewsController < ApplicationController
   # index: findメソッドは使えない
   # show: allメソッド使える
   def show
-    @movie = Movie.find(params[:id])
-    @review = @movie.review_id
+    @review = Review.find(params[:id])
+    @comments = @review.comments
   end
 
   def new
@@ -15,7 +15,6 @@ class User::ReviewsController < ApplicationController
     review = Review.new(review_params)
     movie =  Movie.find(review_params[:movie_id])
     review.user_id = current_user.id
-  
     review.save
     redirect_to movie_path(movie)
   end

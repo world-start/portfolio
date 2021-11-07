@@ -28,6 +28,12 @@ end
     end
   end
 
+  # def search
+  #   @movies = Movie.search(params[:keyword])
+  #   @keyword = params[:keyword]
+  #   render "top"
+  # end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])

@@ -1,0 +1,18 @@
+<h4>コメントする</h4>
+
+<!--hidden_fieldでcreated_tをとばす?-->
+
+<div class="content">
+  <%= current_user.nickname %>
+  <%= form_with model: @comment, url: "/comments", local:true do |f| %>
+  <%#= f.hidden_field :movie_id, value: @movie.id %>
+    <div class="field">
+      <%= f.label :コメント %>
+      <%= f.text_area :content %>
+    </div>
+
+    <div class="action">
+      <%= f.submit "送信" %>
+    </div>
+  <% end %>
+</div>

@@ -1,14 +1,4 @@
 class User::CommentsController < ApplicationController
-  def show
-    # @movie = Movie.find(params[:id])
-    @user = User.find(params[:id])
-    @reviews = @user.reviews
-  end
-
-  def reviewer
-    @user = User.find(params[:id])
-    @review = @user.review
-  end
 
   def new
     @comment = Comment.new
@@ -17,10 +7,14 @@ class User::CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     comment.save
-    redirect_to comment_path(comment)
+    redirect_to review_path(comment)
   end
 
   private
+  def review_params
+    params.require(:review).permit(:movie_id, :comment_id, :score, :content)
+  end
+
   def comment_params
     params.require(:comment).permit(:content, :user_id, :review_id)
   end

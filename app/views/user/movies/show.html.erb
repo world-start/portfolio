@@ -24,6 +24,7 @@
           <%= review.user.nickname %>
           <span id="star-rate-<%= review.id %>"></span>
           <script>
+          $('#star-rate-<%= review.id %>').empty();
             $('#star-rate-<%= review.id %>').raty({
               size: 36,
               starOff: "<%= asset_path('star-off.png') %>",
@@ -35,7 +36,7 @@
             });
           </script><br>
           <%= review.content %><br>
-          <%= link_to "詳細", comment_path(review.user_id), class: "btn btn-success" %>
+          <%= link_to "詳細", review_path(review.id), class: "btn btn-success" %>
         </div>
       </div>
     <% end %>
