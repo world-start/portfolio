@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get "mypage", to: "mypages#mypage"
     get "mypages", to: "mypages#show"
     resources :reviews, only:[:show, :new, :create, :update, :destroy]
-    resources :comments, only:[:new, :create]
+    resources :comments, only:[:create, :destroy]
     resources :movies, only:[:show]
     resources :users, only:[:show]
   end

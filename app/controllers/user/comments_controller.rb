@@ -1,15 +1,19 @@
 class User::CommentsController < ApplicationController
 
-  def new
-    @comment = Comment.new
-  end
-
   def create
-    byebug
     comment = Comment.new(comment_params)
     comment.user_id = current_user.id
     comment.save
     redirect_to review_path(comment.review_id)
+  end
+
+  def destroy
+    # review = Review.find(params[:id])
+    # comments = review.comments
+    # comment = comments.current_user.id
+    # # comment.user_id = current_user.id
+    # comment.destroy
+    # redirect_to review_path(comment.review_id)
   end
 
   private

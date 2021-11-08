@@ -1,5 +1,8 @@
 
-<h5><%= @review.user.nickname %></h5>
+<h5>
+  <%= @review.user.nickname %>
+  <%= link_to "投稿レビューをすべて見る", user_path(@review), class: "btn btn-success" %>
+</h5>
 <div class="review">
    <div class="relative-post-evaluation">
           <%= @review.user.nickname %>
@@ -22,19 +25,18 @@
           <%= @review.content %>
         </div>
       </div>
-<%= link_to "投稿レビューをすべて見る", user_path(@review), class: "btn btn-success" %>
 
+<h4>コメント一覧</h4>
 <% @comments.each do |comment| %>
+<div class="comments">
   <%= comment.user.nickname %>
-  <%= comment.created_at %>
-  <%= comment.content %>
+  <%= comment.created_at %><br>
+  <%= comment.content %><br>
+  <%= link_to "削除", comment_path(comment), method: :delete, class: "btn btn-danger" %>
+</div>
 <% end %>
 
-<%= link_to "コメントする", new_comment_path, class: "btn btn-success" %>
 <h4>コメントする</h4>
-
-<!--hidden_fieldでcreated_atをとばす?-->
-
 <div class="content">
   <%= current_user.nickname %>
   <%= form_with model: @comment_new, url: "/comments", local:true do |f| %>
