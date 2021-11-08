@@ -4,6 +4,7 @@ class User::ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @comments = @review.comments
+    @comment_new = Comment.new
   end
 
   def new

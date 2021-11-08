@@ -5,9 +5,11 @@ class User::CommentsController < ApplicationController
   end
 
   def create
+    byebug
     comment = Comment.new(comment_params)
+    comment.user_id = current_user.id
     comment.save
-    redirect_to review_path(comment)
+    redirect_to review_path(comment.review_id)
   end
 
   private

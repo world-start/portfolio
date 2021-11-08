@@ -26,8 +26,27 @@
 
 <% @comments.each do |comment| %>
   <%= comment.user.nickname %>
-  <%= comment.created_year %>
+  <%= comment.created_at %>
   <%= comment.content %>
 <% end %>
 
 <%= link_to "コメントする", new_comment_path, class: "btn btn-success" %>
+<h4>コメントする</h4>
+
+<!--hidden_fieldでcreated_atをとばす?-->
+
+<div class="content">
+  <%= current_user.nickname %>
+  <%= form_with model: @comment_new, url: "/comments", local:true do |f| %>
+  <%#= f.hidden_field :movie_id, value: @movie.id %>
+    <div class="field">
+      <%= f.label :コメント %>
+      <%= f.text_area :content %>
+      <%= f.hidden_field :review_id, :value => @review.id %>
+    </div>
+
+    <div class="action">
+      <%= f.submit "送信" %>
+    </div>
+  <% end %>
+</div>
