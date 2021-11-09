@@ -1,4 +1,5 @@
 class User::ReviewsController < ApplicationController
+  before_action :authenticate_user, {only: [:show, :new, :create, :destroy]}
   # index: findメソッドは使えない
   # show: allメソッド使える
   def show
