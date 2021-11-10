@@ -15,6 +15,12 @@ class Admin::MoviesController < ApplicationController
     redirect_to admin_root_path
   end
 
+   def search
+    method = params[:search_method]
+    word = params[:search_word]
+    @movies = Movie.search(method,word)
+   end
+   
   private
   def movie_params
     params.require(:movie).permit(:review_id, :title, :image, :introduction, :created_year, :director, :cast, :genre_id)

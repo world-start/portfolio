@@ -5,4 +5,18 @@ class Movie < ApplicationRecord
   # def self.search(keyword)
   #   where(["title like? OR cast like?", "%#{keyword}%", "%#{keyword}%"])
   # end
+
+  def self.search(method,word)
+    if method == "forward_match"
+            @movies = Movie.where("text LIKE?","#{word}%")
+    elsif method == "backward_match"
+            @movies = Movie.where("text LIKE?","%#{word}")
+    elsif method == "perfect_match"
+            @movies = Movie.where("#{word}")
+    elsif method == "partial_match"
+            @movies = Movie.where("text LIKE?","%#{word}%")
+    else
+            @movies = Movie.all
+    end
+  end
 end
