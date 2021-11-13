@@ -9,6 +9,16 @@ class Admin::MoviesController < ApplicationController
     redirect_to admin_root_path
   end
 
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    movie = Movie.find(params[:id])
+    movie.update(movie_params)
+    redirect_to admin_root_path
+  end
+
   def destroy
     movie = Movie.find(params[:id])
     movie.destroy
@@ -20,7 +30,7 @@ class Admin::MoviesController < ApplicationController
     word = params[:search_word]
     @movies = Movie.search(method,word)
    end
-   
+
   private
   def movie_params
     params.require(:movie).permit(:review_id, :title, :image, :introduction, :created_year, :director, :cast, :genre_id)

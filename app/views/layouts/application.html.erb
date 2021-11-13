@@ -32,17 +32,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
-                <li class="nav-item active"><%= link_to "映画一覧", admin_root_path, class: "link" %></li>
+                <li class="nav-item active"><%= link_to "Home", root_path, class: "link"  %></li>
+                <li class="nav-item active"><%= link_to "映画一覧表", admin_root_path, class: "link" %></li>
                 <li class="nav-item active"><%= link_to "映画登録", new_admin_movie_path, class: "link" %></li>
                 <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "link" %></li>
               <% elsif user_signed_in? %>
                 <li class="nav-item active"><%= link_to 'About', homes_about_path, class: "link" %></li>
-                <li class="nav-item active"><%= link_to "映画一覧", root_path, class: "link"  %></li>
+                <li class="nav-item active"><%= link_to "Home", root_path, class: "link"  %></li>
                 <li class="nav-item active"><%= link_to "マイページ", mypage_path, class: "link"  %></li>
                 <li class="nav-item active"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link" %></li>
                <% else %>
                 <li class="nav-item active"><%= link_to "About", homes_about_path, class: "link" %></li>
-                <li class="nav-item active"><%= link_to "映画一覧", root_path, class: "link"  %></li>
+                <li class="nav-item active"><%= link_to "Home", root_path, class: "link"  %></li>
                 <li class="nav-item active"><%= link_to "新規登録", new_user_registration_path, class: "link"  %></li>
                 <li class="nav-item active"><%= link_to "ログイン", new_user_session_path, class: "link"  %></li>
               <% end %>
@@ -50,30 +51,21 @@
             </div>
           </div>
         </nav>
-
-        <!--<div class="text-right">-->
-          <!--<input type="text" placeholder="Search">-->
-          <!--<button type="submit"><i class="fa fa-search"></i></button>-->
-        <!--  <div class="search-form">-->
-        <!--    <%#= form_with url: search_path, method: :get, local: true do |f| %>-->
-        <!--      <%#= f.text_field :keyword, value: @keyword %>-->
-        <!--      <%#= f.submit "検索" %>-->
-        <!--    <%# end %>-->
-        <!--  </div>-->
-        <!--  <div class="movie-list">-->
-            <%# @movies.each do |movie| %>
-              <%#= movie.title %>
-            <%# end %>
-        <!--  </div>-->
-        <!--</div>-->
-
       </div>
 
-    <%= form_tag(search_movies_path, method: :get) do %>
-      <%= select(@search_content, :search_method, [["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"], ["部分一致","partial_match"]])%>
-      <%= text_field(@search_content, :search_word)%>
-      <%= submit_tag "検索" %>
-    <% end %>
+      <% if admin_signed_in? %>
+        <%= form_tag(search_admin_movies_path, method: :get) do %>
+          <%= select(@search_content, :search_method, [["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"], ["部分一致","partial_match"]])%>
+          <%= text_field(@search_content, :search_word)%>
+          <%= submit_tag "検索" %>
+        <% end %>
+      <% elsif %>
+        <%= form_tag(search_movies_path, method: :get) do %>
+          <%= select(@search_content, :search_method, [["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"],["部分一致","partial_match"]])%>
+          <%= text_field(@search_content, :search_word)%>
+          <%= submit_tag "検索" %>
+        <% end %>
+      <% end %>
     </header>
 
     <main>

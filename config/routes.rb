@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root :to => 'homes#top'
-    resources :movies, only:[:new, :create, :destroy] do
+    resources :movies, only:[:new, :create, :edit, :update, :destroy] do
       collection do
         get "/search", to: 'movies#search'
       end

@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>年代</th>
+            <th>ジャンル</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="movie">
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.created_year %></td>
+        <td><%= movie.genre_id %></td>
+        <td><%= link_to "詳細", movie_path(movie) %>
+      </tr>
+    <% end %>
+    </tbody>
+</table>

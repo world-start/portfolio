@@ -1,5 +1,5 @@
 class User::ReviewsController < ApplicationController
-  before_action :authenticate_user, {only: [:show, :new, :create, :destroy]}
+  # before_action :authenticate_user, {only: [:show, :new, :create, :destroy]}
   # index: findメソッドは使えない
   # show: allメソッド使える
   def show
@@ -21,12 +21,10 @@ class User::ReviewsController < ApplicationController
     redirect_to movie_path(movie)
   end
 
-  def update
-  end
-
   def destroy
     review = Review.find(params[:id])
-    review.destroy
+    # pp review
+    review.destroy!
     redirect_to mypages_path
   end
 
