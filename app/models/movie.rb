@@ -1,10 +1,16 @@
 class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  belongs_to :genre
   attachment :image
   enum genre_id: { action: 0, comedy: 1, horror: 2, mystery: 3, romance: 4, sf: 5 }
-  # def self.search(keyword)
-  #   where(["title LIKE ? OR cast LIKE ?", "%#{keyword}%", "%#{keyword}%"])
-  # end
+
+  validates :title, presence: true
+  # validates :image_id, presence: true
+  validates :created_year, presence: true
+  # validates :genre_id, presence: true
+  validates :director, presence: true
+  validates :cast, presence: true
+  validates :introduction, presence: true
 
   def self.search(method,word)
     if method == "forward_match"

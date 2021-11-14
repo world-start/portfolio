@@ -4,9 +4,12 @@ class Admin::MoviesController < ApplicationController
   end
 
   def create
-    movie = Movie.new(movie_params)
-    movie.save
-    redirect_to admin_root_path
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to admin_root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -34,5 +37,8 @@ class Admin::MoviesController < ApplicationController
   private
   def movie_params
     params.require(:movie).permit(:review_id, :title, :image, :introduction, :created_year, :director, :cast, :genre_id)
+  end
+  def genre_params
+    params.require(:genre).permit(:name)
   end
 end

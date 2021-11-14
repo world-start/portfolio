@@ -1,5 +1,14 @@
 <h4>映画新規登録</h4>
 
+<div class="error">
+  <% if @movie.errors.any? %>
+    <%= @movie.errors.count %>件のエラーが発生しました<br>
+    <% @movie.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
+  <% end %>
+</div>
+
 <!--<%#= form_with model: @movie, url: "/admin/movies/new", local:true do |f| %>どちらでも可-->
 <%= form_with model: [:admin, @movie], local:true do |f| %>
         <div class="field">
@@ -19,7 +28,8 @@
 
         <div class="field">
           <%= f.label :ジャンル %>
-          <%= f.select :genre_id, Movie.genre_ids_i18n.keys.map{|k| [I18n.t("movies.genre_ids.#{k}"), k]} %>
+          <%= f.select :name,[['アクション',], ['コメディー'], ['ホラー'], ['ミステリー', ['ロマンス'], ['SF']] %>
+          <%#= f.select :genre_id, Movie.genre_ids_i18n.keys.map{|k| [I18n.t("movies.genre_ids.#{k}"), k]} %>
         </div>
 
         <div class="field">
@@ -37,6 +47,6 @@
           <%= f.text_area :introduction %>
         </div>
 
-        <%= submit_tag "登録する", class: "btn btn-primary" %>
+        <%= f.submit "登録する", class: "btn btn-primary" %>
 
   <% end %>

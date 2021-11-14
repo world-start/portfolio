@@ -9,3 +9,26 @@ Admin.create!(
   email: 'bbb@sample.com',
   password: '234567'
   )
+
+Genre.create!(
+  [
+    {
+      name: 'アクション',
+    },
+    {
+      name: 'コメディー',
+    },
+    {
+      name: 'ホラー',
+    },
+    {
+      name: 'ミステリー',
+    },
+    {
+      name: 'ロマンス',
+    },
+    {
+      name: 'SF',
+    }
+  ]
+)
