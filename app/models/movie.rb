@@ -7,7 +7,6 @@ class Movie < ApplicationRecord
   validates :title, presence: true
   # validates :image_id, presence: true
   validates :created_year, presence: true
-  # validates :genre_id, presence: true
   validates :director, presence: true
   validates :cast, presence: true
   validates :introduction, presence: true

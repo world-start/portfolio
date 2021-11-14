@@ -1,6 +1,7 @@
 class Admin::MoviesController < ApplicationController
   def new
     @movie = Movie.new
+    @movie.genre
   end
 
   def create
@@ -36,7 +37,7 @@ class Admin::MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:review_id, :title, :image, :introduction, :created_year, :director, :cast, :genre_id)
+    params.require(:movie).permit(:review_id, :title, :image, :introduction, :created_year, :director, :cast)
   end
   def genre_params
     params.require(:genre).permit(:name)
