@@ -1,5 +1,6 @@
 class Genre < ApplicationRecord
   has_many :movies, dependent: :destroy
-  
-  validates :genre, presence: true
+
+  validates :name, presence: true
+
 end

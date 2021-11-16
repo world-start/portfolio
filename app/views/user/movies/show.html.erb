@@ -5,7 +5,7 @@
       <div>
       <%= @movie.title %><br>
       <%= @movie.created_year %>年<br>
-      <%= @movie.genre_id_i18n %><br>
+      <%= @movie.genre.name %><br>
       監督：<%= @movie.director %><br>
       出演：<%= @movie.cast %>
       </div>

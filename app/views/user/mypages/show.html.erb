@@ -7,7 +7,7 @@
           <%= current_user.nickname %>
           <%= review.movie.title %>,
           <%= review.movie.created_year %>,
-          <%= review.movie.genre_id %>
+          <%= review.movie.genre.name %>
           <span id="star-rate-<%= review.id %>"></span>
           <script>
             $('#star-rate-<%= review.id %>').raty({

@@ -1,9 +1,0 @@
-ja:
-  movies:
-   genre_ids:
-    action: 'アクション'
-    comedy: 'コメディー'
-    horror: 'ホラー'
-    mystery: 'ミステリー'
-    romance: '恋愛'
-    sf: 'SF'
