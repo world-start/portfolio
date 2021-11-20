@@ -20,7 +20,8 @@
 自分の見た映画を人に紹介したいときや、反対に人がおすすめする映画を知りたいときなど。また、映画を通じた交流の場としても活用できます。
 
 ### 設計書
-movie_maps_機能一覧 - Google スプレッドシート
+movie_maps_機能一覧
+https://docs.google.com/spreadsheets/d/1LkLWQ3y2rO2hxXakilSgJeT2wu7tcO5bIE-w5ZknuXo/edit#gid=0
 
 ### チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/13nwClBYgd1Sq0e160pGO2fTM74ukQYdMcinGV0JsooQ/edit#gid=0
@@ -33,4 +34,4 @@ https://docs.google.com/spreadsheets/d/13nwClBYgd1Sq0e160pGO2fTM74ukQYdMcinGV0Js
 - IDE：Cloud9
 
 ### 外部素材
-pixbayからダウンロード
+Pixabayからダウンロード
