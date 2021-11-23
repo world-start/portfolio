@@ -3,14 +3,15 @@
     <div class="movie-left">
       <%= attachment_image_tag @movie, :image, :fill, 300, 300, format: 'jpeg' %>
       <div>
-      <%= @movie.title %><br>
-      <%= @movie.created_year %>年<br>
-      <%= @movie.genre.name %><br>
+      タイトル：<%= @movie.title %><br>
+      制作：<%= @movie.created_year %>年<br>
+      ジャンル：<%= @movie.genre.name %><br>
       監督：<%= @movie.director %><br>
       出演：<%= @movie.cast %>
       </div>
     </div>
     <div class="movie-right">
+      <h5>映画紹介</h5>
       <%= @movie.introduction %>
     </div>
   </div>
