@@ -1,4 +1,6 @@
 class User::ReviewsController < ApplicationController
+  before_action :move_to_signed_in
+
   # before_action :authenticate_user, {only: [:show, :new, :create, :destroy]}
   # index: findメソッドは使えない
   # show: allメソッド使える
@@ -39,6 +41,14 @@ class User::ReviewsController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname)
+  end
+
+   private
+  def move_to_signed_in
+    unless user_signed_in?
+      #サインインしていないユーザーはログインページが表示される
+      redirect_to  '/users/sign_in'
+    end
   end
 
 end
