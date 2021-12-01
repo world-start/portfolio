@@ -5,6 +5,6 @@
     <tr><th>ニックネーム</th><td><%= current_user.nickname %></td></tr>
     <tr><th>メールアドレス</th><td><%= current_user.email %></td></tr>
   </table><br>
-
+  <%= link_to "編集",  mypages_edit_path, class: "btn btn-primary" %>
   投稿レビュー<%= link_to "一覧を見る", mypages_path, class: "btn btn-success" %>
 </div>

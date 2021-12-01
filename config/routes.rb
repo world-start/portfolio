@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get "/homes/about" =>"homes#about"
     resources :registrations, only:[:new, :create]
     get "mypage", to: "mypages#mypage"
+    get "/mypages/edit", to: "mypages#edit"
     get "mypages", to: "mypages#show"
     resources :reviews, only:[:show, :new, :create, :update, :destroy]
     resources :comments, only:[:create, :destroy]

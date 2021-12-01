@@ -12,16 +12,16 @@ class Movie < ApplicationRecord
   validates :introduction, presence: true
 
   def self.search(method,word)
-    if method == "forward_match"
-            @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","#{word}%","#{word}%","#{word}%","#{word}%","#{word}%"])
-    elsif method == "backward_match"
-            @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","%#{word}","%#{word}","%#{word}","%#{word}","%#{word}"])
-    elsif method == "perfect_match"
-            @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","#{word}","#{word}","#{word}","#{word}","#{word}"])
-    elsif method == "partial_match"
+    # if method == "forward_match"
+    #         @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","#{word}%","#{word}%","#{word}%","#{word}%","#{word}%"])
+    # elsif method == "backward_match"
+    #         @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","%#{word}","%#{word}","%#{word}","%#{word}","%#{word}"])
+    # elsif method == "perfect_match"
+    #         @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","#{word}","#{word}","#{word}","#{word}","#{word}"])
+    # if method == "partial_match"
             @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","%#{word}%","%#{word}%","%#{word}%","%#{word}%","%#{word}%"])
-    else
-            @movies = Movie.all
-    end
+    # else
+            # @movies = Movie.all
+    # end
   end
 end

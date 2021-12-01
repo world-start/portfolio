@@ -7,6 +7,9 @@ class User::MypagesController < ApplicationController
     @reviews = @user.reviews
   end
 
+  def edit
+  end
+
   private
   def review_params
     params.require(:review).permit(:movie_id, :comment_id, :score, :content)
