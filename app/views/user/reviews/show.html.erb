@@ -5,24 +5,29 @@
 </h5>
 <div class="review">
    <div class="relative-post-evaluation">
-          <%= @review.user.nickname %>
-          <%= @review.movie.title %>,
-          <%= @review.movie.created_year %>,
-          <%= @review.movie.genre_id %>
-          <span id="star-rate-<%= @review.id %>"></span>
-          <script>
-          $('#star-rate-<%= @review.id %>').empty();
-            $('#star-rate-<%= @review.id %>').raty({
-              size: 36,
-              starOff: "<%= asset_path('star-off.png') %>",
-              starOn: "<%= asset_path('star-on.png') %>",
-              starHalf: "<%= asset_path('star-half.png') %>",
-              half: true,
-              readOnly: true,
-              score: <%= @review.score %>,
-            });
-          </script><br>
-          <%= @review.content %>
+          <%= @review.user.nickname %><br>
+          <%= @review.content %><br>
+          <%= link_to movie_path(@review.movie) do %>
+            <div class="movies_show_link">
+              <%= attachment_image_tag @review.movie, :image, :fill, 50, 50, format: 'jpeg' %>
+              <%= @review.movie.title %>
+              <%= @review.movie.created_year %>,
+              <%= @review.movie.genre_id %>
+              <span id="star-rate-<%= @review.id %>"></span>
+              <script>
+              $('#star-rate-<%= @review.id %>').empty();
+                $('#star-rate-<%= @review.id %>').raty({
+                  size: 36,
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  starHalf: "<%= asset_path('star-half.png') %>",
+                  half: true,
+                  readOnly: true,
+                  score: <%= @review.score %>,
+                });
+              </script><br>
+            </div>
+          <% end %>
         </div>
       </div>
 
@@ -30,7 +35,7 @@
 <% @comments.each do |comment| %>
 <div class="comments">
   <%= comment.user.nickname %>
-  <%= comment.created_at %><br>
+  <%= comment.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %><br>
   <%= comment.content %><br>
   <%= link_to "削除", comment_path(comment), method: :delete, class: "btn btn-danger" %>
 </div>

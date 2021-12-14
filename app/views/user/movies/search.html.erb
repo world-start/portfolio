@@ -12,7 +12,7 @@
       <tr>
         <td><%= movie.title %></td>
         <td><%= movie.created_year %></td>
-        <td><%= movie.genre_id %></td>
+        <td><%= movie.genre.name %></td>
         <td><%= link_to "詳細", movie_path(movie) %>
       </tr>
     <% end %>
