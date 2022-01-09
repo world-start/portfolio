@@ -1,1 +1,17 @@
-edit
+<h4>マイページ情報編集</h4>
+
+<%= form_with model: @user, url: mypages_edit_path(@user), local:true do |f| %>
+    <div class="field">
+     <%= f.label :ニックネーム %>
+     <%= f.text_field :nickname, autofocus: true %>
+    </div>
+
+    <div class="field">
+     <%= f.label :メールアドレス %>
+     <%= f.email_field :email %>
+    </div>
+
+    <div class="action">
+        <%= f.submit "編集内容を保存", class: "btn btn-primary" %>
+    </div>
+<% end %>

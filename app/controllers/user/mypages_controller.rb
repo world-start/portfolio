@@ -8,6 +8,13 @@ class User::MypagesController < ApplicationController
   end
 
   def edit
+    @user = current_user
+  end
+
+  def update
+    user = current_user
+    user.update(user_params)
+    redirect_to mypage_path(current_user)
   end
 
   private
@@ -17,5 +24,9 @@ class User::MypagesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(:review_id, :title, :image, :introduction, :created_year, :director, :cast, :genre_id)
+  end
+
+  def user_params
+    params.require(:user).permit(:nickname, :email)
   end
 end

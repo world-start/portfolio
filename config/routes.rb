@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :registrations, only:[:new, :create]
     get "mypage", to: "mypages#mypage"
     get "/mypages/edit", to: "mypages#edit"
+    patch "/mypages/edit", to: "mypages#update"
     get "mypages", to: "mypages#show"
     resources :reviews, only:[:show, :new, :create, :update, :destroy]
     resources :comments, only:[:create, :destroy]
