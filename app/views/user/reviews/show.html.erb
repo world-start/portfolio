@@ -37,18 +37,19 @@
   <%= comment.user.nickname %>
   <%= comment.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %><br>
   <%= comment.content %><br>
-  <%= link_to "削除", comment_path(comment), method: :delete, class: "btn btn-danger" %>
+  <% if user_signed_in? && current_user.id == comment.user_id %>
+    <%= link_to "削除", comment_path(comment), method: :delete, class: "btn btn-danger" %>
+  <% end %>
 </div>
 <% end %>
 
 <h4>コメントする</h4>
 <div class="content">
-  <%= current_user.nickname %>
+  投稿者：<%= current_user.nickname %>
   <%= form_with model: @comment_new, url: "/comments", local:true do |f| %>
-  <%#= f.hidden_field :movie_id, value: @movie.id %>
     <div class="field">
-      <%= f.label :コメント %>
-      <%= f.text_area :content %>
+      <%= f.label :コメント %><br>
+      <%= f.text_area :content, size: "50x8" %>
       <%= f.hidden_field :review_id, :value => @review.id %>
     </div>
 
