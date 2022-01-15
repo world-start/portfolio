@@ -16,11 +16,14 @@ class User::ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.new(review_params)
-    movie =  Movie.find(review_params[:movie_id])
-    review.user_id = current_user.id
-    review.save
-    redirect_to movie_path(movie)
+    @review = Review.new(review_params)
+    @movie =  Movie.find(review_params[:movie_id])
+    @review.user_id = current_user.id
+    if @review.save
+      redirect_to movie_path(@movie)
+    else
+      render "new"
+    end
   end
 
   def destroy

@@ -12,7 +12,12 @@
     <% @movies.each do |movie| %>
     <tr>
       <td><%= movie.id %></td>
-      <td><%= movie.title %></td>
+      <td>
+        <%= link_to movie_path(movie)  do %>
+          <%= attachment_image_tag movie, :image, :fill, 60, 53, format: 'jpeg' %>
+        <% end %>
+        <%= movie.title %>
+      </td>
       <td>
         <%= link_to "編集", edit_admin_movie_path(movie), class: "btn btn-success" %>
         <%= link_to "削除", admin_movie_path(movie), method: :delete, class: "btn btn-danger" %>

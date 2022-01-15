@@ -1,16 +1,7 @@
 <h4>映画新規登録</h4>
-
-<div class="error">
-  <% if @movie.errors.any? %>
-    <%= @movie.errors.count %>件のエラーが発生しました<br>
-    <% @movie.errors.full_messages.each do |message| %>
-      <%= message %><br>
-    <% end %>
-  <% end %>
-</div>
-
 <!--<%#= form_with model: @movie, url: "/admin/movies/new", local:true do |f| %>どちらでも可-->
 <%= form_with model: [:admin, @movie], local:true do |f| %>
+<%= render 'layouts/error_messages', model: f.object%>
         <div class="field">
           <%= f.label :画像 %>
           <%= f.attachment_field :image %>

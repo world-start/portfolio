@@ -1,4 +1,13 @@
+<%# if @review.errors.any? %>
+  <!--<%#= @review.errors.count %>件のエラーが発生しました-->
+  <%# @review.errors.full_messages.each do |message| %>
+    <%#= message %>
+  <%# end %>
+<%# end %>
+
+
 <%= form_with model: @review, local: true do |f| %>
+<%= render 'layouts/error_messages', model: f.object%>
   <%= f.hidden_field :movie_id, value: @movie.id %>
   <%= current_user.nickname %>
   <div class="field" id="star">

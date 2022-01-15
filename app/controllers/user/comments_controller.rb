@@ -5,6 +5,11 @@ class User::CommentsController < ApplicationController
     comment.user_id = current_user.id
     comment.save
     redirect_to review_path(comment.review_id)
+    # if comment.save
+    #   redirect_to review_path(comment.review_id)
+    # else
+    #   render template: "user/reviews/show"
+    # end
   end
 
   def destroy
