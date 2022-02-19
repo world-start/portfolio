@@ -11,7 +11,7 @@ class Movie < ApplicationRecord
   validates :cast, presence: true
   validates :introduction, presence: true
 
-  def self.search(method,word)
+  def self.search(method,word)#なぜか引数methodを入れると上手くいく
     # if method == "forward_match"
     #         @movies = Movie.where(["title LIKE ? OR created_year LIKE ? OR introduction LIKE ? OR director LIKE ? OR `cast` LIKE ?","#{word}%","#{word}%","#{word}%","#{word}%","#{word}%"])
     # elsif method == "backward_match"

@@ -30,9 +30,9 @@ class Admin::MoviesController < ApplicationController
   end
 
    def search
-    method = params[:search_method]
+    method = params[:search_method]#なぜか変数methodを入れると上手くいく
     word = params[:search_word]
-    @movies = Movie.search(method,word)
+    @movies = Movie.search(method,word)#←ここも
    end
 
   private
